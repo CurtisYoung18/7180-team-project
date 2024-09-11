@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+
+/* 重置样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Playfair Display', serif;
+}
+
+body {
+    line-height: 1.5;
+    overflow: hidden; /* 防止出现滚动条 */
+}
+
+/* nav bar */
+nav {
+    background: transparent;
+    border-radius: 0;
+    padding: 10px;
+    position: fixed; /* 固定在页面顶部 */
+    top: 0; /* 贴合页面顶部 */
+    width: 100%; /* 占满整个页面宽度 */
+    left: 0;
+    z-index: 1000; /* 保证导航栏在最上层 */
+    box-shadow: none; /* 移除阴影 */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center; /* 使导航栏居中对齐 */
+    padding: 10px;
+}
+
+/* 设置a标签为块元素，并覆盖整个li区域 */
+nav ul li a {
+    display: block; /* 将a标签设置为块级元素 */
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: #2F4F4F; 
+    font-weight: bold;
+    padding: 13px 35px; 
+    box-sizing: border-box; /* 确保padding不影响布局 */
+    transition: color 0.3s, background 0.3s;    
+}
+
+/* 保持 li 样式，但去除padding */
+nav ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer; 
+    position: relative;
+    z-index: 2;
+    transition: color 0.5s;
+    padding: 0; /* 移除了padding，交给a标签 */
+}
+
+/* 激活页面的导航样式（透明深绿色背景） */
+nav ul li.active a {
+    color: white; /* 激活状态下字体颜色 */
+    background-color: rgba(47, 79, 79, 0.5); /* 透明的深绿色背景 */
+    border-radius: 30px; /* 圆角背景 */
+}
+
+nav ul li:hover a {
+    color: #fff; 
+}
+
+nav ul li::after { 
+    content: "";
+    background: #2F4F4F;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.5s, top 0.5s;
+}
+
+nav ul li:hover::after {
+    top: 50%;
+    opacity: 1;
+}
+
+/* 让展示区占满整个视窗高度，并居中显示内容 */
+.showcase {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+}
+
+/* 视频容器 */
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* 确保视频不会超出容器 */
+    z-index: -1; /* 保证视频处于背景层 */
+}
+
+/* 让视频适应容器并覆盖整个页面 */
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover; /* 视频内容填充容器 */
+    z-index: -1;
+}
+
+/* 确保内容在视频上方 */
+.content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+
+/* title 样式 */
+.title {
+    font-size: 6em; 
+    color: #2F4F4F; 
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+/* 发光特效 */
+.glowing-text span {
+    display: inline-block;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+/* Hover效果：每个字母发光 */
+.glowing-text span:hover {
+    color: white;
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff9900, 0 0 30px #ff6600, 0 0 40px #ff3300, 0 0 50px #ff0000;
+    transition: text-shadow 0.3s ease-in-out;
+}
+
+/* 每个字母有不同的发光颜色 */
+.glowing-text span:nth-child(1):hover {
+    text-shadow: 0 0 10px #00ff00, 0 0 20px #00cc00, 0 0 30px #009900;
+}
+.glowing-text span:nth-child(2):hover {
+    text-shadow: 0 0 10px #ff00ff, 0 0 20px #cc00cc, 0 0 30px #990099;
+}
+.glowing-text span:nth-child(3):hover {
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #00cccc, 0 0 30px #009999;
+}
+.glowing-text span:nth-child(4):hover {
+    text-shadow: 0 0 10px #ffff00, 0 0 20px #cccc00, 0 0 30px #999900;
+}
+.glowing-text span:nth-child(5):hover {
+    text-shadow: 0 0 10px #ff9900, 0 0 20px #cc6600, 0 0 30px #993300;
+}
+.glowing-text span:nth-child(6):hover {
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #cc0000, 0 0 30px #990000;
+}
+.glowing-text span:nth-child(7):hover {
+    text-shadow: 0 0 10px #00ffcc, 0 0 20px #00cc99, 0 0 30px #009966;
+}
+
+
+
+/* 通用按钮样式 */
+button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 10px;
+    border: none;
+    margin: 10px;
+    cursor: pointer;
+    font-family: 'Playfair Display', serif;
+    background-color: white; /* 默认背景颜色 */
+    color: #597C6A; /* 默认文字颜色 */
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s; /* 添加过渡效果 */
+}
+
+a.primary, a.secondary {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 10px;
+    border: none;
+    margin: 10px;
+    text-decoration: none; /* 移除链接的默认下划线 */
+    cursor: pointer;
+    font-family: 'Playfair Display', serif;
+    background-color: white;
+    color: #597C6A;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+a.primary {
+    background-color: #597C6A;
+    color: white;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+a.secondary {
+    background-color: white;
+    color: #597C6A;
+    border: 2px solid #597C6A;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+a.primary:hover, a.secondary:hover {
+    background-color: rgba(47, 79, 79, 0.5);
+    color: white;
+    box-shadow: 2px 2px 10px rgba(47, 79, 79, 0.3);
+    border-radius: 30px;
+}
+
+a:active {
+    background-color: rgba(47, 79, 79, 0.7);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    transform: scale(0.98);
+}
+
+p {
+    font-size: 1.5em;
+    color: #2F4F4F;
+    margin-bottom: 60px;
+}

@@ -1,0 +1,102 @@
+
+/* 修改nav以适应新的logo */
+nav {
+    display: flex;
+    justify-content: space-between; /* 将logo和导航菜单分开 */
+    align-items: center; /* 确保logo和菜单在垂直方向上对齐 */
+    background: transparent;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* logo 样式，缩小字体并对齐 */
+.logo {
+    margin-left: 20px; /* 调整logo的左边距 */
+}
+
+.logo .title {
+    font-size: 1.5em; /* 将字体缩小以作为logo使用 */
+    color: #2F4F4F;
+    letter-spacing: 2px;
+    display: inline-block;
+}
+
+/* 适配所有导航栏的样式 */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+nav ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 10px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #2F4F4F; 
+    font-weight: bold;
+    padding: 13px 35px;
+    transition: color 0.3s, background 0.3s;    
+}
+
+/* 保持title的发光特效 */
+.glowing-text span {
+    display: inline-block;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.glowing-text span:hover {
+    color: white;
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff9900, 0 0 30px #ff6600, 0 0 40px #ff3300, 0 0 50px #ff0000;
+    transition: text-shadow 0.3s ease-in-out;
+}
+
+/* 设置其他hover效果和按钮样式 */
+a.primary, a.secondary {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 10px;
+    border: none;
+    margin: 10px;
+    text-decoration: none;
+    background-color: white;
+    color: #597C6A;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+a.primary {
+    background-color: #597C6A;
+    color: white;
+}
+
+a.secondary {
+    background-color: white;
+    color: #597C6A;
+    border: 2px solid #597C6A;
+}
+
+a.primary:hover, a.secondary:hover {
+    background-color: rgba(47, 79, 79, 0.5);
+    color: white;
+    box-shadow: 2px 2px 10px rgba(47, 79, 79, 0.3);
+    border-radius: 30px;
+}
+
+/* showcase 样式 */
+.showcase {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
